@@ -152,7 +152,7 @@ function atirarNoMonstro() {
 // Função para movimentar aleatoriamente o agente
 function moverAleatorio() {
     if (!agente.movimento || agente.pausado || !agente.jogoAtivo) return;
-    
+
     // Direções possíveis (cima, baixo, esquerda, direita)
     const direcoes = ['up', 'down', 'left', 'right'];
     const direcaoEscolhida = direcoes[Math.floor(Math.random() * direcoes.length)];
@@ -221,7 +221,7 @@ function moverAleatorio() {
     // Adiciona a imagem e o destaque na nova célula
     const novaCelula = document.querySelector(`.cell[data-x="${agente.x}"][data-y="${agente.y}"]`);
     if (novaCelula) {
-        novaCelula.innerHTML += '<img src="hacker.png" alt="Agente Hacker">'; // Adiciona a imagem do agente
+        novaCelula.innerHTML += '<img src="images/hacker.png" alt="Agente Hacker">'; // Adiciona a imagem do agente
         novaCelula.classList.add('agente'); // Destaca a célula do agente
     }
 }
@@ -233,7 +233,7 @@ function iniciarMovimentoAleatorio() {
     if (agente.intervalo) {
         clearInterval(agente.intervalo); // Limpa qualquer intervalo anterior
     }
-    agente.intervalo = setInterval(moverAleatorio, 50); // Movimento a cada 50 ms (super rápido)
+    agente.intervalo = setInterval(moverAleatorio, 500); // Movimento a cada 500ms(0,5s) (super rápido)
 }
 
 // Função para atualizar a pontuação na tela
@@ -252,10 +252,15 @@ document.getElementById('gerarAmbiente').addEventListener('click', () => {
     iniciarJogo(); // Inicia a primeira execução
 });
 document.getElementById('pausar').addEventListener('click', function () {
+    const botaoPausar = document.getElementById('pausar');
+
     if (agente.pausado) {
         retomarJogo(); // Se estiver pausado, retoma
+        botaoPausar.textContent = "Pausar"; // Altera o nome do botão de volta para "Pausar"
     } else {
         pausarJogo(); // Se estiver em execução, pausa
+        botaoPausar.textContent = "Pausado"; // Altera o nome do botão para "Pausado"
     }
 });
+
 document.getElementById('parar').addEventListener('click', pararJogo);

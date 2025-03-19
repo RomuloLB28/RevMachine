@@ -87,25 +87,25 @@ function imprimirMatriz(matriz) {
 
             // Adiciona as imagens conforme o conteúdo da célula
             if (conteudo.includes('M')) {
-                divCell.innerHTML += '<img src="roborev.png" alt="Máquina Assassina">';
+                divCell.innerHTML += '<img src="images/roborev.png" alt="Máquina Assassina">';
             }
             if (conteudo.includes('E')) {
-                divCell.innerHTML += '<img src="escombros.png" alt="Escombros">';
+                divCell.innerHTML += '<img src="images/escombros.png" alt="Escombros">';
             }
             if (conteudo.includes('C')) {
-                divCell.innerHTML += '<img src="secretcode.png" alt="Código de Desativação">';
+                divCell.innerHTML += '<img src="images/secretcode.png" alt="Código de Desativação">';
             }
             if (conteudo.includes('S')) {
-                divCell.innerHTML += '<img src="sinal.png" alt="Sinal de Rede">';
+                divCell.innerHTML += '<img src="images/sinal.png" alt="Sinal de Rede">';
             }
             if (conteudo.includes('R')) {
-                divCell.innerHTML += '<img src="ruido.png" alt="Ruído">';
+                divCell.innerHTML += '<img src="images/ruido.png" alt="Ruído">';
             }
             if (conteudo.includes('P')) {
-                divCell.innerHTML += '<img src="poeira.png" alt="Poeira">';
+                divCell.innerHTML += '<img src="images/poeira.png" alt="Poeira">';
             }
             if (i === agente.x && j === agente.y) {
-                divCell.innerHTML += '<img src="hacker.png" alt="Agente Hacker">'; // Adiciona a imagem do agente
+                divCell.innerHTML += '<img src="images/hacker.png" alt="Agente Hacker">'; // Adiciona a imagem do agente
                 divCell.classList.add('agente'); // Destaca a célula do agente
             }
             
