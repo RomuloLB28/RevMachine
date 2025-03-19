@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Agente Hacker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Jogo do Agente Hacker</h1>
+
+    <div>
+        <label for="versaoAgente">Escolha a versão do agente: </label>
+        <select id="versaoAgente">
+            <option value="1">Agente Versão 1 (Aleatório)</option>
+            <option value="2">Agente Versão 2 (A ser implementada)</option>
+            <option value="3">Agente Versão 3 (Algoritmo Genético)</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="tamanho">Tamanho da Matriz (NxN): </label>
+        <input type="number" id="tamanho" value="5" min="5" max="20">
+    </div>
+
+    <button id="gerarAmbiente">Iniciar Jogo</button>
+    <button id="pausar">Pausar</button>
+    <button id="parar">Parar</button>
+
+    <div id="matriz" class="matriz"></div>
+    <div id="pontuacao">Pontuação: 0</div>
+
+    <div id="tabela-pontuacoes">
+        <h2>Pontuações</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Execução</th>
+                    <th>Pontuação</th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+                <!-- As pontuações serão adicionadas aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="ambiente.js"></script>
+    <script src="agente1.js"></script>
+</body>
+</html>
