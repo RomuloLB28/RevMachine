@@ -6,72 +6,84 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1a1a1a;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     text-align: center;
-    color: #333;
+    color: #ddd;
 }
 
+/* Título com efeito enferrujado */
 h1 {
     margin-bottom: 20px;
-    font-size: 2rem;
-    color: #4CAF50;
+    font-size: 2.5rem;
+    color: #8b0000;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
 }
 
+/* Contêiner da configuração */
 .configuracao {
     margin-bottom: 20px;
 }
 
+/* Estilo dos rótulos */
 label {
     font-size: 1.2rem;
-    color: #333;
+    color: #bbb;
 }
 
+/* Estilo dos botões e seleção */
 select, button {
     padding: 10px;
     font-size: 1rem;
     margin: 10px;
     border-radius: 5px;
-    background-color: #0b312f;
+    background-color: #5a3e2b; /* Cor de ferrugem */
     color: #fff;
-    border: none;
+    border: 1px solid #3e2b1a;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #8b0000; /* Vermelho escuro enferrujado */
 }
 
 /* Estilo da matriz */
 .matriz {
     display: grid;
-    grid-template-columns: repeat(5, 50px); /* Este valor será dinâmico no JS */
+    grid-template-columns: repeat(5, 50px); /* Será dinâmico */
     justify-content: center;
     margin-top: 20px;
     transition: transform 0.3s ease;
-    /* Outros estilos da grid */
 }
 
+/* Estilo das células */
 .cell {
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #cdf7f7dc;
-    border: 0.2px solid #066e0f;
+    background-color: #3e3e3e; /* Cinza escuro de metal enferrujado */
+    border: 1px solid #8b0000;
     font-size: 1.2rem;
     font-weight: bold;
     transition: background-color 0.3s;
     text-align: center;
     position: relative;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Adicione esta classe para destacar a célula do agente */
+/* Célula do agente */
 .cell.agente {
-    background-color: #4CAF50; /* Cor de destaque */
-    border: 2px solid #0b312f; /* Borda mais espessa */
+    background-color: #ff4500; /* Laranja enferrujado */
+    border: 2px solid #5a3e2b;
 }
 
 /* Estilos para as imagens dentro das células */
@@ -84,28 +96,25 @@ select, button {
     left: 0;
 }
 
-.controles {
-    margin-top: 20px;
+/* Estilizando a pontuação */
+#pontuacao {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #ff4500;
+    font-weight: bold;
 }
 
-button {
-    padding: 10px;
-    font-size: 1rem;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover{
-    background-color: #3794d3;
-    cursor: pointer;
-}
-
+/* Tabela de pontuações */
 #tabela-pontuacoes {
     margin-top: 20px;
+    background-color: #2b2b2b;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#tabela-pontuacoes h2 {
+    color: #ddd;
 }
 
 #tabela-pontuacoes table {
@@ -114,7 +123,31 @@ button:hover{
 }
 
 #tabela-pontuacoes th, #tabela-pontuacoes td {
-    border: 1px solid #333;
+    border: 1px solid #5a3e2b;
     padding: 8px;
     text-align: center;
+    background-color: #3e3e3e;
+    color: #fff;
+}
+
+#tabela-pontuacoes th {
+    background-color: #5a3e2b;
+}
+
+/* Botões estilizados */
+button {
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #5a3e2b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #8b0000;
+    cursor: pointer;
 }
