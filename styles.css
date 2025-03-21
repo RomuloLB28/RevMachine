@@ -7,9 +7,10 @@
     box-sizing: border-box;
 }
 
-body {    
-    font-family: 'Press Start 2P', cursive;    
-    background-color: #000;    
+body {
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;  
     display: flex;    
     flex-direction: column;    
     align-items: center;    
@@ -17,9 +18,18 @@ body {
     height: 100vh;    
     text-align: center;    
     color: #00ffea; /* Azul Neon */
-    background-image: url("images/background.png");    
-    background-size: cover; 
-    background-position: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/background.png") center/cover no-repeat;
+    opacity: 0.3; /* Ajuste o valor para a transparência desejada */
+    z-index: -1; /* Garante que fique atrás do conteúdo */
 }
 
 /* Título estilo neon hacker */
@@ -27,7 +37,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 2rem;
     color: #ff00ff; /* Roxo Neon */
-    text-shadow: 4px 4px 10px #ff00ff, 0 0 15px #00ffff;
+    text-shadow: 4px 4px 10px #930f93, 0 0 15px #00ffff;
 }
 
 /* Container de configuração */
@@ -43,7 +53,7 @@ label {
 }
 
 /* Botões e seletores estilo painel hacker */
-select, button {
+select, button,.selector {
     padding: 12px;
     font-size: 0.9rem;
     margin: 10px;
@@ -57,6 +67,10 @@ select, button {
     font-family: 'Press Start 2P', cursive;
     text-shadow: 0 0 5px #0f0;
     box-shadow: 0px 0px 10px #0f0;
+}
+
+#tamanho{
+    font-size: 20px;
 }
 
 button:hover {
