@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 /* Resetando margens e paddings */
 * {
     margin: 0;
@@ -5,88 +7,108 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1a1a1a;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    color: #ddd;
+body {    
+    font-family: 'Press Start 2P', cursive;    
+    background-color: #000;    
+    display: flex;    
+    flex-direction: column;    
+    align-items: center;    
+    justify-content: center;    
+    height: 100vh;    
+    text-align: center;    
+    color: #00ffea; /* Azul Neon */
+    background-image: url("images/background.png");    
+    background-size: cover; 
+    background-position: center;
 }
 
-/* Título com efeito enferrujado */
+/* Título estilo neon hacker */
 h1 {
     margin-bottom: 20px;
-    font-size: 2.5rem;
-    color: #8b0000;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-    font-weight: bold;
+    font-size: 2rem;
+    color: #ff00ff; /* Roxo Neon */
+    text-shadow: 4px 4px 10px #ff00ff, 0 0 15px #00ffff;
 }
 
-/* Contêiner da configuração */
+/* Container de configuração */
 .configuracao {
     margin-bottom: 20px;
 }
 
 /* Estilo dos rótulos */
 label {
-    font-size: 1.2rem;
-    color: #bbb;
+    font-size: 1rem;
+    color: #00ffea;
+    text-shadow: 0px 0px 5px #00ffea;
 }
 
-/* Estilo dos botões e seleção */
+/* Botões e seletores estilo painel hacker */
 select, button {
-    padding: 10px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 0.9rem;
     margin: 10px;
-    border-radius: 5px;
-    background-color: #5a3e2b; /* Cor de ferrugem */
-    color: #fff;
-    border: 1px solid #3e2b1a;
+    border-radius: 2px;
+    background-color: #111; /* Fundo escuro */
+    color: #0f0; /* Verde hacker */
+    border: 2px solid #0f0;
     cursor: pointer;
-    transition: background 0.3s;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0 0 5px #0f0;
+    box-shadow: 0px 0px 10px #0f0;
 }
 
 button:hover {
-    background-color: #8b0000; /* Vermelho escuro enferrujado */
+    background-color: #0f0;
+    color: #000;
+    box-shadow: 0px 0px 20px #0f0;
 }
 
-/* Estilo da matriz */
+/* Estilo da matriz (tela pixelada) */
 .matriz {
     display: grid;
-    grid-template-columns: repeat(5, 50px); /* Será dinâmico */
+    grid-template-columns: repeat(5, 50px);
     justify-content: center;
     margin-top: 20px;
     transition: transform 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border: 3px solid #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
 }
 
-/* Estilo das células */
+/* Estilo das células (efeito tela CRT) */
 .cell {
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3e3e3e; /* Cinza escuro de metal enferrujado */
-    border: 1px solid #8b0000;
-    font-size: 1.2rem;
+    background-color: #222; /* Preto suave */
+    border: 2px solid #ff00ff;
+    font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s;
     text-align: center;
     position: relative;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 10px #ff00ff;
 }
 
-/* Célula do agente */
+/* Célula do agente (efeito especial neon) */
 .cell.agente {
-    background-color: #ff4500; /* Laranja enferrujado */
-    border: 2px solid #5a3e2b;
+    background-color: #ff4500; 
+    border: 2px solid #ff00ff;
+    animation: glitch 0.5s infinite alternate;
 }
 
-/* Estilos para as imagens dentro das células */
+/* Efeito de glitch neon */
+@keyframes glitch {
+    0% { box-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff; }
+    100% { box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff; }
+}
+
+/* Efeito pixelado para as imagens dentro das células */
 .cell img {
     width: 100%;
     height: 90%;
@@ -94,27 +116,39 @@ button:hover {
     position: absolute;
     top: 0;
     left: 0;
+    image-rendering: pixelated; /* Mantém o efeito pixel art */
 }
 
-/* Estilizando a pontuação */
+/* Estilizando a pontuação com efeito glitch */
 #pontuacao {
     font-size: 1.5rem;
     margin-top: 15px;
-    color: #ff4500;
+    color: #00ffea;
     font-weight: bold;
+    text-shadow: 0 0 5px #00ffea, 0 0 10px #ff00ff;
+    animation: flicker 1s infinite alternate;
 }
 
-/* Tabela de pontuações */
+/* Efeito de flicker */
+@keyframes flicker {
+    0% { opacity: 1; text-shadow: 0 0 5px #00ffea; }
+    50% { opacity: 0.8; text-shadow: 0 0 15px #ff00ff; }
+    100% { opacity: 1; text-shadow: 0 0 5px #00ffea; }
+}
+
+/* Tabela de pontuação com efeito retro */
 #tabela-pontuacoes {
     margin-top: 20px;
-    background-color: #2b2b2b;
+    background-color: #111;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 15px #ff00ff;
+    border: 2px solid #ff00ff;
 }
 
 #tabela-pontuacoes h2 {
-    color: #ddd;
+    color: #00ffea;
+    text-shadow: 0px 0px 5px #00ffea;
 }
 
 #tabela-pontuacoes table {
@@ -123,31 +157,40 @@ button:hover {
 }
 
 #tabela-pontuacoes th, #tabela-pontuacoes td {
-    border: 1px solid #5a3e2b;
+    border: 1px solid #ff00ff;
     padding: 8px;
     text-align: center;
-    background-color: #3e3e3e;
+    background-color: #222;
     color: #fff;
+    text-shadow: 0px 0px 5px #fff;
 }
 
 #tabela-pontuacoes th {
-    background-color: #5a3e2b;
+    background-color: #ff00ff;
 }
 
 /* Botões estilizados */
 button {
     padding: 10px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 10px;
-    border-radius: 5px;
-    background-color: #5a3e2b;
-    color: #fff;
-    border: none;
+    border-radius: 2px;
+    background-color: #000;
+    color: #0f0;
+    border: 2px solid #0f0;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease-in-out;
+    text-shadow: 0 0 5px #0f0;
+    box-shadow: 0px 0px 10px #0f0;
 }
 
 button:hover {
-    background-color: #8b0000;
-    cursor: pointer;
+    background-color: #0f0;
+    color: #000;
+    box-shadow: 0px 0px 20px #0f0;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
 }

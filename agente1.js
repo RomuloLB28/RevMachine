@@ -233,7 +233,7 @@ function iniciarMovimentoAleatorio() {
     if (agente.intervalo) {
         clearInterval(agente.intervalo); // Limpa qualquer intervalo anterior
     }
-    agente.intervalo = setInterval(moverAleatorio, 500); // Movimento a cada 500ms(0,5s) (super rápido)
+    agente.intervalo = setInterval(moverAleatorio, 50); // Movimento a cada 500ms(0,5s) (super rápido)
 }
 
 // Função para atualizar a pontuação na tela
