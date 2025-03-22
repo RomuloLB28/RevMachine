@@ -195,6 +195,7 @@ function moverAleatorio() {
     if (conteudoCelula.includes('E')) {
         agente.pontuacao -= 10; // Perde 10 pontos por entrar em escombros
     }
+
     if (conteudoCelula.includes('M')) {
         agente.jogoAtivo = false; // Morre ao encontrar a máquina assassina
         alert("Você morreu! Fim de jogo.");
@@ -233,7 +234,7 @@ function iniciarMovimentoAleatorio() {
     if (agente.intervalo) {
         clearInterval(agente.intervalo); // Limpa qualquer intervalo anterior
     }
-    agente.intervalo = setInterval(moverAleatorio, 50); // Movimento a cada 500ms(0,5s) (super rápido)
+    agente.intervalo = setInterval(moverAleatorio, 1000); // Movimento a cada 100ms(1s)
 }
 
 // Função para atualizar a pontuação na tela

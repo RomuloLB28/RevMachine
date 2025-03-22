@@ -68,24 +68,22 @@ function gerarAmbiente(n, qtdEscombrosPercent, qtdMaquinas, qtdCodigos) {
     return matriz;
 }
 
-// Função para imprimir a matriz com imagens
 function imprimirMatriz(matriz) {
     const divMatriz = document.getElementById('matriz');
     divMatriz.innerHTML = '';
     
     const n = matriz.length;
-    divMatriz.style.gridTemplateColumns = `repeat(${n}, 50px)`; // Ajusta o número de colunas baseado no tamanho da matriz
-    divMatriz.style.gridTemplateRows = `repeat(${n}, 50px)`; // Ajusta o número de linhas baseado no tamanho da matriz
+    divMatriz.style.gridTemplateColumns = `repeat(${n}, 50px)`;
+    divMatriz.style.gridTemplateRows = `repeat(${n}, 50px)`;
 
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             const divCell = document.createElement('div');
             divCell.classList.add('cell');
-            divCell.setAttribute('data-x', i); // Adiciona coordenada X
-            divCell.setAttribute('data-y', j); // Adiciona coordenada Y
+            divCell.setAttribute('data-x', i);
+            divCell.setAttribute('data-y', j);
             let conteudo = matriz[i][j];
 
-            // Adiciona as imagens conforme o conteúdo da célula
             if (conteudo.includes('M')) {
                 divCell.innerHTML += '<img src="images/roborev.png" alt="Máquina Assassina">';
             }
@@ -105,11 +103,20 @@ function imprimirMatriz(matriz) {
                 divCell.innerHTML += '<img src="images/poeira.png" alt="Poeira">';
             }
             if (i === agente.x && j === agente.y) {
-                divCell.innerHTML += '<img src="images/hacker.png" alt="Agente Hacker">'; // Adiciona a imagem do agente
-                divCell.classList.add('agente'); // Destaca a célula do agente
+                divCell.innerHTML += '<img src="images/hacker.png" alt="Agente Hacker">';
+                divCell.classList.add('agente');
             }
             
             divMatriz.appendChild(divCell);
         }
+    }
+
+    // Ajustar escala dinamicamente
+    divMatriz.classList.remove('scale-small', 'scale-smaller');
+    if (n > 10) {
+        divMatriz.classList.add('scale-small');
+    }
+    if (n > 15) {
+        divMatriz.classList.add('scale-smaller');
     }
 }
